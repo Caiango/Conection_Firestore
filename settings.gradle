@@ -1,0 +1,2 @@
+rootProject.name='Conection_Firestore'
+include ':app'

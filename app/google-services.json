@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "150464885755",
+    "firebase_url": "https://conection-firestore.firebaseio.com",
+    "project_id": "conection-firestore",
+    "storage_bucket": "conection-firestore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150464885755:android:7d8486f6582caaf4f6d15e",
+        "android_client_info": {
+          "package_name": "com.example.conection_firestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150464885755-vs1aak6v2j6ecebfaki3ll8mue6a9smt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbw0p_XUDSZHTDRya1RBjNngTbAL7ZA9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150464885755-vs1aak6v2j6ecebfaki3ll8mue6a9smt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
