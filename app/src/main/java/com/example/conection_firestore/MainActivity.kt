@@ -78,19 +78,20 @@ class MainActivity : AppCompatActivity() {
 
         btmostrar.setOnClickListener {
             //mostrar individualmente
-
-            db.collection("users").document("123456")
-                .get()
-                .addOnSuccessListener { document ->
-                    if (document != null) {
-                        Log.d("teste", "DocumentSnapshot data: ${document.data}")
-                        //mostra no textview
-                        textViewteste.text = document.getString("nome")
-                    }
-                }
-                .addOnFailureListener { exception ->
-                    Log.w("teste", "Error getting documents.", exception)
-                }
+//            db.collection("users").document("123456")
+//                .get()
+//                .addOnSuccessListener { document ->
+//                    if (document != null) {
+//                        Log.d("teste", "DocumentSnapshot data: ${document.data}")
+//                        //mostra no textview
+//                        textViewteste.text = document.getString("nome")
+//                    }
+//                }
+//                .addOnFailureListener { exception ->
+//                    Log.w("teste", "Error getting documents.", exception)
+//                }
+            //ou utilizar o where
+            getbyvalor()
         }
 
         btdel.setOnClickListener { delete() }
@@ -136,6 +137,28 @@ class MainActivity : AppCompatActivity() {
                 Log.w(TAG, "Error deleting document", e)
             })
         chamar()
+    }
+
+
+    fun getbyvalor(){
+        db.collection("users").whereEqualTo("nome", "Caio")
+            .get()
+            .addOnCompleteListener(OnCompleteListener<QuerySnapshot> { task ->
+                if (task.isSuccessful) {
+                    UserList.clear()
+                    for (document in task.result!!) {
+                        Log.d(TAG, document.id + " => " + document.data)
+                        var idade: String? = document.getString("idade")
+                        var nome: String? = document.getString("nome")
+                        var data = data(idade, nome)
+                        UserList.add(data)
+                    }
+                    val adapter = AdapterList(applicationContext, R.layout.lista_layout, UserList)
+                    data_list.adapter = adapter
+                } else {
+                    Log.d(TAG, "Error getting documents: ", task.exception)
+                }
+            })
     }
 }
 
